@@ -1,28 +1,28 @@
 import React from 'react';
-import { Card } from './Card';
+import Cards from './Cards';
+import "./CardList.css";
 
-const CardList = ({characters}) => {
-    const cardArray = characters.map((data, i) => {
+const CardList = (props) => {
+    const cardArray = props.characters.map((data, i) => {
+        console.log(props)
         return(
-            <Card 
-            key={i} 
-            name={characters[i].name}
-            id={characters[i].id}
-            gender={characters[i].gender}
-            species={characters[i].species}
-            status={characters[i].status}
+            <Cards 
+            key={i}
+            image={data.image}
+            name={data.name}
+            id={data.id}
+            gender={data.gender}
+            species={data.species}
+            status={data.status}
             />
         )
     })
+    console.log(props)
     return(
-        <div>
+        <div className="card-deck">
         {cardArray}
         </div>
     )
 }
-
-
-
-
 
 export default CardList;
